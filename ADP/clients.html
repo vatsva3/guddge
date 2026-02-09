@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients & Case Studies - Guddge Enterprise Information Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 5rem 2rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+        }
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .case-study-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .case-study-header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        .case-study-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .case-study-header .industry {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .case-study-content {
+            padding: 2rem;
+        }
+        .case-study-block {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .case-study-block:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        .case-study-block h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        .case-study-block p {
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+        .case-study-block .outcome {
+            color: #059669;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .metrics-section {
+            background: #1a1a2e;
+            color: white;
+            padding: 5rem 2rem;
+        }
+        .metrics-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        .metric-card {
+            padding: 2rem;
+        }
+        .metric-card .number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+        .metric-card .label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .testimonials-section {
+            background: white;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .testimonial-author .avatar {
+            width: 50px;
+            height: 50px;
+            background: #2563eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .testimonial-author .name {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        .testimonial-author .title {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+        .cta-section {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-section.logo-section {
+            align-items: flex-start;
+        }
+        .footer-section.logo-section img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        .footer-section p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="Guddge">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Client Success Stories</h1>
+        <p>Real transformations. Measurable outcomes. Proven results from 90+ enterprise projects.</p>
+    </section>
+
+    <section class="section">
+        <p class="intro-text">We've helped enterprises across industries modernize their technology, migrate to the cloud, and build data infrastructure that drives business outcomes. Here are some of our success stories.</p>
+        
+        <div class="case-studies-grid">
+            <!-- Case Study 1: Sempra Energy -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Sempra Energy</h3>
+                    <p class="industry">Energy & Utilities</p>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h4>Challenge</h4>
+                        <p>Legacy systems were creating bottlenecks as the company grew through multiple acquisitions, making it hard to integrate new businesses and scale operations.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Approach</h4>
+                        <p>We partnered with Sempra to modernize their core infrastructure, consolidate systems from acquisitions, and build a unified data platform. Our long-term engagement meant we understood their business deeply and could plan for the future.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Outcome</h4>
+                        <p class="outcome">12+ year ongoing partnership with continuous modernization. Zero major disruptions to operations while transforming the entire technology stack.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Healthcare Company -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Major Healthcare Company</h3>
+                    <p class="industry">Healthcare</p>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h4>Challenge</h4>
+                        <p>Needed to migrate critical patient data systems to AWS while maintaining HIPAA compliance and ensuring zero downtime for patient care operations.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Approach</h4>
+                        <p>Phased migration strategy with extensive testing at every step. Our team's healthcare IT background meant we knew compliance requirements cold and could anticipate regulatory concerns.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Outcome</h4>
+                        <p class="outcome">Completed migration with zero patient data issues. Achieved 40% infrastructure cost reduction while improving system reliability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3: Manufacturing Enterprise -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Manufacturing Enterprise</h3>
+                    <p class="industry">Manufacturing</p>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h4>Challenge</h4>
+                        <p>Their SAP environment was 8 versions behind and creating increasing support headaches as vendors ended maintenance for older releases.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Approach</h4>
+                        <p>Staged upgrade plan that kept manufacturing operations running full speed. Built parallel testing environments to ensure no production impact during the cutover.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Outcome</h4>
+                        <p class="outcome">Successful SAP upgrade completed with 99.9% uptime over the cutover weekend. Production lines never stopped.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 4: Financial Services Firm -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Financial Services Firm</h3>
+                    <p class="industry">Financial Services</p>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h4>Challenge</h4>
+                        <p>Data warehouse couldn't handle growing data volumes or support new analytics needs, limiting the firm's ability to make data-driven decisions.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Approach</h4>
+                        <p>Designed and built a modern data warehouse on AWS Redshift. Migrated 5 years of historical data while keeping existing reporting running during the transition.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Outcome</h4>
+                        <p class="outcome">Query performance improved by 10x. New analytics capabilities enabled that drove a 15% improvement in investment decision timing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 5: Retail Company -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>National Retail Company</h3>
+                    <p class="industry">Retail</p>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h4>Challenge</h4>
+                        <p>Point-of-sale and inventory systems from 3 acquired retail chains couldn't communicate, creating inventory visibility problems across 500+ stores.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Approach</h4>
+                        <p>Consolidated disparate systems into a unified platform. Phased approach meant stores stayed open and operational throughout the 18-month project.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Outcome</h4>
+                        <p class="outcome">Real-time inventory visibility across all stores. Inventory carrying costs reduced by 25% and out-of-stock situations dropped by 40%.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 6: Technology Company -->
+            <div class="case-study-card">
+                <div class="case-study-header">
+                    <h3>Growth-Stage Technology Company</h3>
+                    <p class="industry">Technology</p>
+                </div>
+                <div class="case-study-content">
+                    <div class="case-study-block">
+                        <h4>Challenge</h4>
+                        <p>Exploding data volumes from rapid growth were overwhelming their analytics infrastructure, causing delays in business reporting and customer insights.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Approach</h4>
+                        <p>Built a scalable data platform on AWS that could grow with their needs. Implemented automated data pipelines and modern BI dashboards for self-service analytics.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Outcome</h4>
+                        <p class="outcome">Analytics pipeline time reduced from hours to minutes. Business teams gained self-service capabilities that accelerated decision-making.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="metrics-section">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">Our Track Record</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="number">90+</div>
+                <div class="label">Projects Completed</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">12+</div>
+                <div class="label">Years Average Client Relationship</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">99.9%</div>
+                <div class="label">Average Uptime During Migrations</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">40%</div>
+                <div class="label">Average Cost Reduction Achieved</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials-section">
+        <h2 class="section-title" style="text-align: center;">What Our Clients Say</h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Guddge understood our business in ways other consultancies never did. They weren't just consultants—they'd been in our shoes. The 12-year partnership has been invaluable to our technology evolution."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">JD</div>
+                    <div>
+                        <div class="name">John Davidson</div>
+                        <div class="title">CIO, Sempra Energy</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p>"We were nervous about migrating patient data to the cloud. Guddge's healthcare expertise and careful approach meant zero issues. They delivered exactly what they promised."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">SR</div>
+                    <div>
+                        <div class="name">Sarah Rodriguez</div>
+                        <div class="title">CTO, Healthcare Company</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <p>"The SAP upgrade went smoother than we imagined. Guddge's phased approach kept our manufacturing lines running. They delivered on time and on budget."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">MK</div>
+                    <div>
+                        <div class="name">Michael Kim</div>
+                        <div class="title">VP of Operations, Manufacturing Enterprise</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Become Our Next Success Story?</h2>
+        <p>Let's discuss how we can help transform your technology infrastructure.</p>
+        <a href="contact.html" class="cta-button" style="background: white; color: #1a1a2e;">Schedule a Consultation</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="logo.svg" alt="Guddge">
+                <p>Enterprise Information Management excellence through innovation, strategic advice, and proven delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="services.html">Legacy Modernization</a>
+                <a href="services.html">Cloud Infrastructure</a>
+                <a href="services.html">AI & Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="clients.html">Clients</a>
+                <a href="careers.html">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="contact.html">Get in Touch</a>
+                <a href="mailto:info@guddge.com">info@guddge.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Guddge. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="chatbot.js"></script>
+    <script src="scroll-arrows.js"></script>
+</body>
+</html>

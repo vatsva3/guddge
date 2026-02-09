@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Guddge Enterprise Information Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 5rem 2rem;
+        }
+        .scenario-section {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .scenario-section:last-child {
+            border-bottom: none;
+        }
+        .scenario-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .scenario-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .scenario-icon {
+            width: 60px;
+            height: 60px;
+            background: #2563eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+        .scenario-header h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+        }
+        .scenario-description {
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        .services-applied {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .services-applied h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        .service-item {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid #2563eb;
+        }
+        .service-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .service-item p {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .cta-link:hover {
+            text-decoration: underline;
+        }
+        .all-services-section {
+            background: #f8fafc;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        .service-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+        .cta-section {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-section.logo-section {
+            align-items: flex-start;
+        }
+        .footer-section.logo-section img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        .footer-section p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .scenario-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="Guddge">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Our Services</h1>
+        <p>Enterprise Information Management solutions organized around your challenges, not our capabilities.</p>
+    </section>
+
+    <section class="section">
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #6b7280; font-size: 1.1rem;">Not sure what you need? Start with your scenario. We've organized our services by the challenges our clients face most often.</p>
+    </section>
+
+    <!-- Scenario 1: Legacy System Modernization -->
+    <section class="scenario-section">
+        <div class="scenario-content">
+            <div class="scenario-header">
+                <div class="scenario-icon">🔄</div>
+                <h2>Legacy System Modernization</h2>
+            </div>
+            <p class="scenario-description">Old systems slowing down your business? We help enterprises upgrade, consolidate, and modernize technology stacks without disrupting operations. Our phased approach minimizes risk while delivering modern capabilities.</p>
+            
+            <div class="services-applied">
+                <h3>Services that apply to this scenario:</h3>
+                <div class="services-list">
+                    <div class="service-item">
+                        <strong>SAP Migration & Upgrade</strong>
+                        <p>Full-lifecycle SAP modernization from ECC 6 to S/4HANA. Includes planning, testing, and cutover with zero production disruption.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>System Consolidation</strong>
+                        <p>Merge systems from acquisitions, eliminate redundancies, and streamline operations while maintaining business continuity.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Legacy Application Assessment</strong>
+                        <p>Deep analysis of your application portfolio to identify modernization priorities and build a phased improvement roadmap.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Enterprise Architecture Design</strong>
+                        <p>Build a scalable architecture that supports future growth while leveraging existing investments.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="contact.html" class="cta-link">Discuss your modernization needs →</a>
+        </div>
+    </section>
+
+    <!-- Scenario 2: Cloud Data Infrastructure -->
+    <section class="scenario-section">
+        <div class="scenario-content">
+            <div class="scenario-header">
+                <div class="scenario-icon">☁️</div>
+                <h2>Cloud Data Infrastructure</h2>
+            </div>
+            <p class="scenario-description">Need to build or modernize your data platform in the cloud? We design and implement AWS-based data infrastructure that scales, is secure, and delivers value from your data assets.</p>
+            
+            <div class="services-applied">
+                <h3>Services that apply to this scenario:</h3>
+                <div class="services-list">
+                    <div class="service-item">
+                        <strong>AWS Cloud Migration</strong>
+                        <p>Migrate on-premise workloads to AWS with proper planning, security, and optimization. We know AWS deeply and have done this many times.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Data Warehouse Modernization</strong>
+                        <p>Build modern data warehouses on AWS Redshift, Snowflake, or similar platforms. Unified data for analytics and reporting.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Data Platform Architecture</strong>
+                        <p>Design data platforms that handle ingestion, storage, processing, and delivery. Scalable, secure, and cost-optimized.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Cloud Security & Compliance</strong>
+                        <p>Ensure your cloud infrastructure meets enterprise security standards and compliance requirements (HIPAA, SOC 2, etc.).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="contact.html" class="cta-link">Discuss your cloud infrastructure needs →</a>
+        </div>
+    </section>
+
+    <!-- Scenario 3: AI/Analytics Implementation -->
+    <section class="scenario-section">
+        <div class="scenario-content">
+            <div class="scenario-header">
+                <div class="scenario-icon">📊</div>
+                <h2>AI & Analytics Implementation</h2>
+            </div>
+            <p class="scenario-description">Want to extract more value from your data through analytics and AI? We help enterprises implement analytics solutions and AI capabilities that drive business decisions and operational improvements.</p>
+            
+            <div class="services-applied">
+                <h3>Services that apply to this scenario:</h3>
+                <div class="services-list">
+                    <div class="service-item">
+                        <strong>Business Intelligence Solutions</strong>
+                        <p>Implement BI tools and dashboards that give leaders actionable insights. Power BI, Tableau, or custom solutions.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Data Analytics & Insights</strong>
+                        <p>Turn raw data into business intelligence. Advanced analytics, predictive modeling, and trend analysis.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Machine Learning Implementation</strong>
+                        <p>Deploy ML models for specific business use cases. From demand forecasting to anomaly detection.</p>
+                    </div>
+                    <div class="service-item">
+                        <strong>Data Governance & Quality</strong>
+                        <p>Ensure your data is accurate, consistent, and well-governed. Foundation for reliable analytics and AI.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="contact.html" class="cta-link">Discuss your analytics and AI needs →</a>
+        </div>
+    </section>
+
+    <!-- All Services Section -->
+    <section class="section all-services-section">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a1a2e;">All Services</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>SAP Migration & Upgrade</h3>
+                <p>Full-lifecycle SAP modernization from ECC 6 to S/4HANA. We handle planning, testing, and cutover with zero production disruption. Our team has managed 15+ SAP upgrades.</p>
+            </div>
+            <div class="service-card">
+                <h3>AWS Cloud Migration</h3>
+                <p>Migrate on-premise workloads to AWS with proper planning, security, and optimization. Deep AWS expertise with 40+ successful enterprise migrations completed.</p>
+            </div>
+            <div class="service-card">
+                <h3>Data Warehouse Modernization</h3>
+                <p>Build modern data warehouses on AWS Redshift, Snowflake, or similar platforms. Unified data for analytics and reporting across your organization.</p>
+            </div>
+            <div class="service-card">
+                <h3>System Consolidation</h3>
+                <p>Merge systems from acquisitions, eliminate redundancies, and streamline operations while maintaining business continuity throughout the process.</p>
+            </div>
+            <div class="service-card">
+                <h3>Business Intelligence Solutions</h3>
+                <p>Implement BI tools and dashboards that give leaders actionable insights. Power BI, Tableau, or custom solutions tailored to your needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Data Platform Architecture</h3>
+                <p>Design data platforms that handle ingestion, storage, processing, and delivery. Scalable, secure, and cost-optimized for enterprise needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>Enterprise Architecture Design</h3>
+                <p>Build scalable architectures that support future growth while leveraging existing technology investments and minimizing risk.</p>
+            </div>
+            <div class="service-card">
+                <h3>Machine Learning Implementation</h3>
+                <p>Deploy ML models for specific business use cases. Demand forecasting, anomaly detection, and predictive analytics that drive results.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cloud Security & Compliance</h3>
+                <p>Ensure your cloud infrastructure meets enterprise security standards and compliance requirements including HIPAA, SOC 2, and GDPR.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Not Sure Where to Start?</h2>
+        <p>Let's talk through your challenges and find the right solution for your enterprise.</p>
+        <a href="contact.html" class="cta-button" style="background: white; color: #1a1a2e;">Schedule a Free Consultation</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="logo.svg" alt="Guddge">
+                <p>Enterprise Information Management excellence through innovation, strategic advice, and proven delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="services.html">Legacy Modernization</a>
+                <a href="services.html">Cloud Infrastructure</a>
+                <a href="services.html">AI & Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="clients.html">Clients</a>
+                <a href="careers.html">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="contact.html">Get in Touch</a>
+                <a href="mailto:info@guddge.com">info@guddge.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Guddge. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="chatbot.js"></script>
+    <script src="scroll-arrows.js"></script>
+</body>
+</html>

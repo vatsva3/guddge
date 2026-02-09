@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase - Guddge Enterprise Technology Transformation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 5rem 2rem;
+        }
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .showcase-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .showcase-image {
+            height: 250px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+        .showcase-content {
+            padding: 2rem;
+        }
+        .showcase-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        .showcase-content p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        .showcase-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+        .stat .label {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        .approach-section {
+            background: #f8fafc;
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .approach-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .approach-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .approach-card p {
+            color: #6b7280;
+        }
+        .cta-section {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-section.logo-section {
+            align-items: flex-start;
+        }
+        .footer-section.logo-section img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        .footer-section p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+            <img src="logo.svg" alt="Guddge">
+        </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Our Work</h1>
+        <p>A sampling of the enterprise transformations we've delivered across industries.</p>
+    </section>
+
+    <section class="section">
+        <div class="showcase-grid">
+            <div class="showcase-card">
+                <div class="showcase-image">⚡</div>
+                <div class="showcase-content">
+                    <h3>Sempra Energy Infrastructure Modernization</h3>
+                    <p>12+ year partnership modernizing utility infrastructure, consolidating systems from acquisitions, and building a unified data platform for one of America's largest energy companies.</p>
+                    <div class="showcase-stats">
+                        <div class="stat">
+                            <div class="number">12+</div>
+                            <div class="label">Years</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">15+</div>
+                            <div class="label">Systems Modernized</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">0</div>
+                            <div class="label">Major Disruptions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-image">🏥</div>
+                <div class="showcase-content">
+                    <h3>Healthcare Data Platform on AWS</h3>
+                    <p>HIPAA-compliant cloud migration for a major healthcare provider, enabling advanced analytics while maintaining strict data security and compliance requirements.</p>
+                    <div class="showcase-stats">
+                        <div class="stat">
+                            <div class="number">40%</div>
+                            <div class="label">Cost Reduction</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">0</div>
+                            <div class="label">Compliance Issues</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">100%</div>
+                            <div class="label">Uptime Maintained</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-image">🏭</div>
+                <div class="showcase-content">
+                    <h3>Manufacturing SAP S/4HANA Upgrade</h3>
+                    <p>Complete SAP upgrade for a Fortune 500 manufacturer, delivering the latest ERP capabilities while keeping production lines running around the clock.</p>
+                    <div class="showcase-stats">
+                        <div class="stat">
+                            <div class="number">99.9%</div>
+                            <div class="label">Uptime</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">8</div>
+                            <div class="label">Versions Upgraded</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">On Time</div>
+                            <div class="label">Delivery</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-image">📊</div>
+                <div class="showcase-content">
+                    <h3>Financial Services Data Warehouse</h3>
+                    <p>Modern data warehouse on AWS Redshift for a financial services firm, enabling real-time analytics and improving investment decision timing by 15%.</p>
+                    <div class="showcase-stats">
+                        <div class="stat">
+                            <div class="number">10x</div>
+                            <div class="label">Faster Queries</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">5TB</div>
+                            <div class="label">Data Migrated</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">15%</div>
+                            <div class="label">Faster Decisions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-image">🛒</div>
+                <div class="showcase-content">
+                    <h3>Retail System Consolidation</h3>
+                    <p>Unified point-of-sale and inventory systems for a national retailer with 500+ stores, eliminating data silos and improving inventory visibility across all locations.</p>
+                    <div class="showcase-stats">
+                        <div class="stat">
+                            <div class="number">500+</div>
+                            <div class="label">Stores Connected</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">25%</div>
+                            <div class="label">Cost Reduction</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">40%</div>
+                            <div class="label">Less Stockouts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card">
+                <div class="showcase-image">☁️</div>
+                <div class="showcase-content">
+                    <h3>Technology Company Cloud Platform</h3>
+                    <p>Scalable data platform for a fast-growing tech company, enabling self-service analytics and reducing pipeline time from hours to minutes.</p>
+                    <div class="showcase-stats">
+                        <div class="stat">
+                            <div class="number">10x</div>
+                            <div class="label">Faster Analytics</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">∞</div>
+                            <div class="label">Scalability</div>
+                        </div>
+                        <div class="stat">
+                            <div class="number">Self</div>
+                            <div class="label">Service Enabled</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section approach-section">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a1a2e;">How We Deliver</h2>
+        
+        <div class="approach-grid">
+            <div class="approach-card">
+                <h3>Enterprise Experience First</h3>
+                <p>We understand enterprise challenges because we've faced them. Our team has been in your shoes, which means we plan for the realities of large organizations.</p>
+            </div>
+            <div class="approach-card">
+                <h3>Phased Delivery</h3>
+                <p>We break complex projects into manageable phases. Each phase delivers value while minimizing risk and keeping your business running smoothly.</p>
+            </div>
+            <div class="approach-card">
+                <h3>Long-term Partnership</h3>
+                <p>We're not a vendor—we're a partner. Our average client relationship spans 12+ years because we deliver ongoing value, not just one-off completions.</p>
+            </div>
+            <div class="approach-card">
+                <h3>Proven Methods</h3>
+                <p>90+ successful projects have refined our approach. We know what works and what to avoid in enterprise technology transformations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Want to See More?</h2>
+        <p>Let's discuss how we can bring similar results to your organization.</p>
+        <a href="contact.html" class="cta-button" style="background: white; color: #1a1a2e;">Schedule a Consultation</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="logo.svg" alt="Guddge">
+                <p>Enterprise Information Management excellence through innovation, strategic advice, and proven delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="services.html">Legacy Modernization</a>
+                <a href="services.html">Cloud Infrastructure</a>
+                <a href="services.html">AI & Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="clients.html">Clients</a>
+                <a href="careers.html">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="contact.html">Get in Touch</a>
+                <a href="mailto:info@guddge.com">info@guddge.com</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #6b7280; font-size: 0.9rem;">&copy; 2024 Guddge. All rights reserved.</p>
+    </footer>
+    <script src="chatbot.js"></script>
+    <script src="scroll-arrows.js"></script>
+</body>
+</html>

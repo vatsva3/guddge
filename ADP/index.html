@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guddge - Enterprise Information Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .hero {
+            padding: 10rem 2rem 6rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .tagline {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .tagline-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .tagline-item .divider {
+            color: #60a5fa;
+            font-size: 1.5rem;
+        }
+        .tagline-item:last-child .divider {
+            display: none;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+            text-align: center;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .hero-buttons .cta-button {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+        .hero-buttons .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #60a5fa;
+            color: #60a5fa;
+        }
+        .hero-buttons .cta-button.secondary:hover {
+            background: rgba(96, 165, 250, 0.1);
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        .trust-badge {
+            text-align: center;
+        }
+        .trust-badge .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #60a5fa;
+        }
+        .trust-badge .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .section {
+            padding: 5rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .service-card p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        .clients-section {
+            background: white;
+        }
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .case-study {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+        }
+        .case-study h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        .case-study .challenge {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .case-study .approach {
+            font-size: 0.9rem;
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+        .case-study .outcome {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #059669;
+        }
+        .approach-section {
+            background: #f8fafc;
+        }
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .approach-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .approach-card .icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+        .approach-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        .approach-card p {
+            color: #6b7280;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-section.logo-section {
+            align-items: flex-start;
+        }
+        .footer-section.logo-section img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        .footer-section p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .tagline {
+                gap: 1.5rem;
+            }
+            .trust-badges {
+                gap: 2rem;
+            }
+            .tagline-item {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="logo.svg" alt="Guddge">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tagline">
+                <div class="tagline-item">
+                    <span>INNOVATE</span>
+                    <span class="divider">|</span>
+                </div>
+                <div class="tagline-item">
+                    <span>ADVISE</span>
+                    <span class="divider">|</span>
+                </div>
+                <div class="tagline-item">
+                    <span>DELIVER</span>
+                </div>
+            </div>
+            
+            <h1>Enterprise Information Management Excellence</h1>
+            <p>At Guddge, we seamlessly integrate deep business insights, innovative technology, and robust leadership to deliver top-tier Enterprise Information Management services, including platform support.</p>
+            
+            <div class="hero-buttons">
+                <a href="contact.html" class="cta-button">Work With Us</a>
+                <a href="services.html" class="cta-button secondary">Our Services</a>
+            </div>
+            
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <div class="number">20</div>
+                    <div class="label">Years in Business</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="number">12+</div>
+                    <div class="label">Long-term Clients</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="number">50+</div>
+                    <div class="label">Expert Consultants</div>
+                </div>
+                <div class="trust-badge">
+                    <div class="number">90+</div>
+                    <div class="label">Projects Completed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section approach-section">
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">Our integrated approach combines innovation, strategic advice, and proven delivery to transform your enterprise.</p>
+        
+        <div class="approach-grid">
+            <div class="approach-card">
+                <div class="icon">💡</div>
+                <h3>INNOVATE</h3>
+                <p>We bring cutting-edge technology solutions that modernize your systems and drive digital transformation across your organization.</p>
+            </div>
+            <div class="approach-card">
+                <div class="icon">🎯</div>
+                <h3>ADVISE</h3>
+                <p>Our strategic guidance leverages deep industry expertise to help you make informed decisions about technology investments and transformations.</p>
+            </div>
+            <div class="approach-card">
+                <div class="icon">🚀</div>
+                <h3>DELIVER</h3>
+                <p>We execute complex transformations with precision, delivering measurable outcomes while minimizing disruption to your operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Comprehensive Enterprise Information Management solutions tailored to your needs.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Legacy System Modernization</h3>
+                <p>Upgrade, consolidate, or replace aging systems without disrupting operations. SAP upgrades, system consolidation, and enterprise architecture design.</p>
+            </div>
+            <div class="service-card">
+                <h3>Cloud Data Infrastructure</h3>
+                <p>Build modern data platforms on AWS. Cloud migration, data warehousing, and security compliance for enterprise needs.</p>
+            </div>
+            <div class="service-card">
+                <h3>AI & Analytics Implementation</h3>
+                <p>Turn your data into insights with BI solutions, machine learning, and advanced analytics that drive business decisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section clients-section">
+        <h2 class="section-title">Client Success Stories</h2>
+        <p class="section-subtitle">Real transformations. Measurable outcomes. See how we've helped enterprises modernize and thrive.</p>
+        
+        <div class="clients-grid">
+            <div class="case-study">
+                <h4>Sempra Energy</h4>
+                <p class="challenge"><strong>Challenge:</strong> Legacy systems creating bottlenecks as the company grew through acquisition.</p>
+                <p class="approach"><strong>Approach:</strong> Partnered to modernize infrastructure, consolidate acquisition systems, and build unified data platform over 12+ years.</p>
+                <p class="outcome">Outcome: 12+ year partnership with continuous modernization and zero major disruptions.</p>
+            </div>
+            <div class="case-study">
+                <h4>Healthcare Company</h4>
+                <p class="challenge"><strong>Challenge:</strong> Needed HIPAA-compliant cloud migration of patient data systems.</p>
+                <p class="approach"><strong>Approach:</strong> Phased migration with extensive testing. Healthcare compliance expertise ensured smooth transition.</p>
+                <p class="outcome">Outcome: Zero compliance issues, 40% infrastructure cost reduction, 100% uptime.</p>
+            </div>
+            <div class="case-study">
+                <h4>Manufacturing Enterprise</h4>
+                <p class="challenge"><strong>Challenge:</strong> SAP environment 8 versions behind causing support issues.</p>
+                <p class="approach"><strong>Approach:</strong> Staged upgrade with parallel testing environments to ensure no production impact.</p>
+                <p class="outcome">Outcome: Successful upgrade with 99.9% uptime during cutover weekend.</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="clients.html" class="cta-button">View All Case Studies</a>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Transform Your Enterprise?</h2>
+        <p>Let's discuss how we can help modernize your technology infrastructure with innovation, strategic advice, and proven delivery.</p>
+        <a href="contact.html" class="cta-button" style="background: white; color: #1a1a2e;">Schedule a Consultation</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="logo.svg" alt="Guddge">
+                <p>Enterprise Information Management excellence through innovation, strategic advice, and proven delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="services.html">Legacy Modernization</a>
+                <a href="services.html">Cloud Infrastructure</a>
+                <a href="services.html">AI & Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="clients.html">Clients</a>
+                <a href="careers.html">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="contact.html">Get in Touch</a>
+                <a href="mailto:info@guddge.com">info@guddge.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Guddge. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="chatbot.js"></script>
+    <script src="scroll-arrows.js"></script>
+</body>
+</html>

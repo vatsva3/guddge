@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Guddge Enterprise Technology Transformation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 5rem 2rem;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .contact-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .submit-button {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-button:hover {
+            background: #1d4ed8;
+        }
+        .contact-info {
+            padding: 1rem;
+        }
+        .contact-info h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+        }
+        .contact-info p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: #2563eb;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .info-content h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: #1a1a2e;
+        }
+        .info-content p {
+            color: #6b7280;
+            margin: 0;
+        }
+        .info-content a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+        .areas-section {
+            background: white;
+        }
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .area-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .area-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .area-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+        .cta-section {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-section.logo-section {
+            align-items: flex-start;
+        }
+        .footer-section.logo-section img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        .footer-section p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .success-message {
+            display: none;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+            <img src="logo.svg" alt="Guddge">
+        </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Contact Us</h1>
+        <p>Ready to discuss your enterprise technology transformation? Let's start a conversation.</p>
+    </section>
+
+    <section class="section">
+        <div class="contact-grid">
+            <div class="contact-form">
+                <h2>Send Us a Message</h2>
+                <div class="success-message" id="successMessage">
+                    Thank you for your message! We'll be in touch within 24 hours.
+                </div>
+                <form id="contactForm" action="mailto:info@guddge.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Job Title</label>
+                        <input type="text" id="title" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">I'm interested in...</label>
+                        <select id="interest" name="interest">
+                            <option value="">Select a service area</option>
+                            <option value="legacy">Legacy System Modernization</option>
+                            <option value="cloud">Cloud Data Infrastructure</option>
+                            <option value="ai">AI & Analytics Implementation</option>
+                            <option value="sap">SAP Migration & Upgrade</option>
+                            <option value="aws">AWS Cloud Migration</option>
+                            <option value="other">Something Else</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your challenges *</label>
+                        <textarea id="message" name="message" placeholder="What technology challenges is your organization facing? What are your main concerns?"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p>Prefer to talk directly? Here's how you can reach our team.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@guddge.com">info@guddge.com</a></p>
+                        <p><a href="mailto:careers@guddge.com">careers@guddge.com</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📞</div>
+                    <div class="info-content">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+                        <p style="font-size: 0.9rem; margin-top: 0.25rem;">Mon-Fri, 9am-6pm EST</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div class="info-content">
+                        <h3>Headquarters</h3>
+                        <p>123 Enterprise Way<br>San Francisco, CA 94105</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">🌐</div>
+                    <div class="info-content">
+                        <h3>Global Presence</h3>
+                        <p>Onshore consultants across the US<br>Offshore teams in India and Europe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section areas-section">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a1a2e;">How We Can Help</h2>
+        
+        <div class="areas-grid">
+            <div class="area-card">
+                <h3>Legacy System Modernization</h3>
+                <p>Upgrade, consolidate, or replace aging systems without disrupting operations.</p>
+            </div>
+            <div class="area-card">
+                <h3>Cloud Migration</h3>
+                <p>Migrate to AWS with proper planning, security, and optimization.</p>
+            </div>
+            <div class="area-card">
+                <h3>Data Platform Build</h3>
+                <p>Design and implement modern data warehouses and analytics platforms.</p>
+            </div>
+            <div class="area-card">
+                <h3>SAP Transformation</h3>
+                <p>ECC to S/4HANA migrations and ongoing SAP optimization.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Not Sure Where to Start?</h2>
+        <p>Book a free 30-minute consultation to discuss your challenges and explore options.</p>
+        <a href="mailto:info@guddge.com" class="cta-button" style="background: white; color: #1a1a2e;">Schedule Free Consultation</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="logo.svg" alt="Guddge">
+                <p>Enterprise Information Management excellence through innovation, strategic advice, and proven delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="services.html">Legacy Modernization</a>
+                <a href="services.html">Cloud Infrastructure</a>
+                <a href="services.html">AI & Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="clients.html">Clients</a>
+                <a href="careers.html">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="contact.html">Get in Touch</a>
+                <a href="mailto:info@guddge.com">info@guddge.com</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #6b7280; font-size: 0.9rem;">&copy; 2024 Guddge. All rights reserved.</p>
+    </footer>
+    <script src="chatbot.js"></script>
+    <script src="scroll-arrows.js"></script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            // Reset form
+            this.reset();
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

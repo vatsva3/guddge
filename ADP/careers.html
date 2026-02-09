@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Guddge Enterprise Technology Transformation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+            background: #fafafa;
+        }
+        header {
+            background: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        .cta-button {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #1d4ed8;
+        }
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-header p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+        .section {
+            padding: 5rem 2rem;
+        }
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+        }
+        .benefits-section {
+            background: white;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .benefit-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        .benefit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .benefit-card p {
+            color: #6b7280;
+        }
+        .positions-section {
+            background: #f8fafc;
+        }
+        .positions-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .position-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .position-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .position-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .position-card .location {
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .position-card p {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+        }
+        .position-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .tag {
+            background: #e5e7eb;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #4b5563;
+        }
+        .culture-section {
+            background: white;
+        }
+        .culture-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .culture-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+            text-align: center;
+        }
+        .culture-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .culture-item:last-child {
+            border-bottom: none;
+        }
+        .culture-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        .culture-item p {
+            color: #6b7280;
+        }
+        .cta-section {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-section.logo-section {
+            align-items: flex-start;
+        }
+        .footer-section.logo-section img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        .footer-section p {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+        .footer-section a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+            <img src="logo.svg" alt="Guddge">
+        </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="clients.html">Clients</a></li>
+                <li><a href="showcase.html">Showcase</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="contact.html" class="cta-button">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Join Our Team</h1>
+        <p>Work on meaningful enterprise transformations with a team of former IT leaders who value expertise and long-term partnerships.</p>
+    </section>
+
+    <section class="section benefits-section">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a1a2e;">Why Guddge?</h2>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Work on Real Enterprise Challenges</h3>
+                <p>Tackle complex technology transformations for Fortune 500 companies. Not incremental changes—meaningful modernization that impacts millions of users and billions in revenue.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Learn from Ex-Enterprise Leaders</h3>
+                <p>Work alongside former CIOs, CTOs, and IT directors who've built and run the systems you'll now help modernize. Mentorship from day one.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Long-term Projects, Not Rush Jobs</h3>
+                <p>Our average client engagement lasts years. Take the time to do things right, build deep expertise, and see the impact of your work over time.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Flexible Work Arrangements</h3>
+                <p>Onsite, onshore, offshore—we offer flexible work arrangements that let you work where you're most productive while serving clients effectively.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Competitive Compensation</h3>
+                <p>Enterprise-grade compensation packages including performance bonuses, professional development funds, and comprehensive benefits.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Clear Career Path</h3>
+                <p>Defined career tracks from consultant to senior partner. Grow your expertise and leadership capabilities in an organization that values tenure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section positions-section">
+        <h2 style="text-align: center; font-size: 2rem; margin-bottom: 3rem; color: #1a1a2e;">Open Positions</h2>
+        
+        <div class="positions-list">
+            <div class="position-card">
+                <h3>Senior SAP Consultant</h3>
+                <p class="location">Remote / Hybrid</p>
+                <p>Lead SAP S/4HANA implementations for enterprise clients. You'll work directly with client IT teams and our senior leadership to deliver complex transformations.</p>
+                <div class="position-tags">
+                    <span class="tag">SAP S/4HANA</span>
+                    <span class="tag">ECC 6.0</span>
+                    <span class="tag">10+ years experience</span>
+                </div>
+                <a href="mailto:careers@guddge.com" class="cta-button">Apply Now</a>
+            </div>
+
+            <div class="position-card">
+                <h3>AWS Cloud Architect</h3>
+                <p class="location">Remote / Hybrid</p>
+                <p>Design and implement cloud architectures on AWS for enterprise clients. Deep AWS expertise required along with experience in enterprise environments.</p>
+                <div class="position-tags">
+                    <span class="tag">AWS</span>
+                    <span class="tag">Cloud Architecture</span>
+                    <span class="tag">Enterprise</span>
+                </div>
+                <a href="mailto:careers@guddge.com" class="cta-button">Apply Now</a>
+            </div>
+
+            <div class="position-card">
+                <h3>Data Warehouse Engineer</h3>
+                <p class="location">Remote / Hybrid</p>
+                <p>Build and modernize data warehouses for enterprise clients. Experience with Redshift, Snowflake, or similar platforms required.</p>
+                <div class="position-tags">
+                    <span class="tag">Redshift</span>
+                    <span class="tag">Snowflake</span>
+                    <span class="tag">ETL/ELT</span>
+                </div>
+                <a href="mailto:careers@guddge.com" class="cta-button">Apply Now</a>
+            </div>
+
+            <div class="position-card">
+                <h3>Enterprise Program Manager</h3>
+                <p class="location">Onsite - Various Locations</p>
+                <p>Lead complex technology programs for enterprise clients. Requires experience managing large-scale IT initiatives with multiple stakeholders.</p>
+                <div class="position-tags">
+                    <span class="tag">Program Management</span>
+                    <span class="tag">Stakeholder Management</span>
+                    <span class="tag">Enterprise IT</span>
+                </div>
+                <a href="mailto:careers@guddge.com" class="cta-button">Apply Now</a>
+            </div>
+
+            <div class="position-card">
+                <h3>SAP Migration Specialist</h3>
+                <p class="location">Remote / Hybrid</p>
+                <p>Specialize in SAP system migrations and upgrades. Deep expertise in SAP technical landscape and migration methodologies required.</p>
+                <div class="position-tags">
+                    <span class="tag">SAP Migration</span>
+                    <span class="tag">System Upgrade</span>
+                    <span class="tag">Technical</span>
+                </div>
+                <a href="mailto:careers@guddge.com" class="cta-button">Apply Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section culture-section">
+        <div class="culture-content">
+            <h2>Our Culture</h2>
+            
+            <div class="culture-item">
+                <h3>Enterprise Experience Over Theory</h3>
+                <p>We hire people who've been in the trenches. Our consultants have run the systems they're now modernizing. We value real-world experience over certifications alone.</p>
+            </div>
+            
+            <div class="culture-item">
+                <h3>Long-term Thinking</h3>
+                <p>We build relationships that last—for our clients and our team. We invest in our people for the long haul, not just the next project completion.</p>
+            </div>
+            
+            <div class="culture-item">
+                <h3>Excellence Without Ego</h3>
+                <p>We deliver world-class work without the attitude. Our team combines deep expertise with humble, collaborative approaches to client relationships.</p>
+            </div>
+            
+            <div class="culture-item">
+                <h3>Balance and Sustainability</h3>
+                <p>Enterprise transformations are marathons, not sprints. We work hard but sustainably, ensuring our team can deliver excellence over the long term.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Make an Impact?</h2>
+        <p>Join a team that values expertise, relationships, and doing things right.</p>
+        <a href="mailto:careers@guddge.com" class="cta-button" style="background: white; color: #1a1a2e;">Email Us About Opportunities</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section logo-section">
+                <img src="logo.svg" alt="Guddge">
+                <p>Enterprise Information Management excellence through innovation, strategic advice, and proven delivery.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <a href="services.html">Legacy Modernization</a>
+                <a href="services.html">Cloud Infrastructure</a>
+                <a href="services.html">AI & Analytics</a>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="clients.html">Clients</a>
+                <a href="careers.html">Careers</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="contact.html">Get in Touch</a>
+                <a href="mailto:info@guddge.com">info@guddge.com</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: #6b7280; font-size: 0.9rem;">&copy; 2024 Guddge. All rights reserved.</p>
+    </footer>
+    <script src="chatbot.js"></script>
+    <script src="scroll-arrows.js"></script>
+</body>
+</html>
